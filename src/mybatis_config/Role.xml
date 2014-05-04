@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="user">
+<mapper namespace="role">
 
 
 
-	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="theID">
+	<insert id="insertRole" parameterType="User" useGeneratedKeys="true" keyProperty="theID">
 		insert into foo.user(userID,name,age,phone,passWord) values(#{userID},#{name},#{age},#{phone},#{passWord});
 	</insert>
 	
