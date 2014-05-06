@@ -6,21 +6,21 @@
 
 
 
-	<insert id="insertRole" parameterType="User" useGeneratedKeys="true" keyProperty="theID">
+	<insert id="insertRole" parameterType="Role" useGeneratedKeys="true" keyProperty="theID">
 		insert into foo.user(userID,name,age,phone,passWord) values(#{userID},#{name},#{age},#{phone},#{passWord});
 	</insert>
 	
-	<delete id="deleteUser" parameterType="long">
-		delete from user where theID = #{theID}
+	<delete id="deleteRole" parameterType="long">
+		delete from role where theID = #{theID}
 	</delete>
 	
-	<select id="getUserByUserID" parameterType="String" resultType="User">
-	 select * from user where userID=#{userID}
+	<select id="getRoleByRoleID" parameterType="Long" resultType="Role">
+	 select * from role where theID=#{theID}
 	</select>
 	
 	
-	<update id="updateUser" parameterType="User">
-		update user set 
+	<update id="updateRole" parameterType="Role">
+		update role set 
 		<trim suffixOverrides=",">
 			<if test="name!=null">name=#{name}, </if>
 			<if test="phone!=null">phone=#{phone}, </if>
@@ -30,8 +30,8 @@
 		<where>theID=#{theID}</where>
 	</update>
 	
-	<select id="getAllUser" resultType="User" parameterType="map">
-		select * from user 
+	<select id="getAllRole" resultType="Role" parameterType="map">
+		select * from Role 
 		<trim suffixOverrides="and">
 			<where>
 				<if test="name!=null"> name like #{name} and </if>
