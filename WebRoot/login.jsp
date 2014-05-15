@@ -4,48 +4,11 @@
 	src="${pageContext.request.contextPath}/js/jquery-1.11.0.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-1.11.0.min.js"></script>
-
-<title>芒果菠萝饭</title>
+<head>
+<link rel="shortcut icon"  href="icon/favicon.ico" />
+<title>One Piece</title>
+</head>
 <style>
-
-body{
-background-color: #004B97;
-}
-
-#1{
-margin-top:10%;
-margin-left:40%;
-width:250;
-height:247;
-background-image: url(images/1.png);
-background-repeat: no-repeat;
-}
-
-#2{
-margin-top:50px;
-margin-left:50px;
-width:150;
-height:30;
-cursor:pointer;
-background-image: url(images/2.png);
-}
-
-#userID{
- margin-top:41px;
-margin-left:-36px;
-width:152;
-height:30;
-font-size:19;
-}
-#password{
-margin-top:14px;
-margin-left:-36px;
-width:152;
-height:30;
-font-size:19;
-}
-
-
 </style>
 
 
@@ -53,18 +16,23 @@ font-size:19;
 
 	<form name="form1"
 		action="${pageContext.request.contextPath}/userLogin.do" method="post">
-		
-		<div id="1">
-		<input type="text" id="userID" name="userID">
-		<input type="password" id="password" name="password">
-		<a onclick="doSumit()" id="2"></a>
-		</div>
-		
-		
-	
+
+		<table>
+			<tr>
+				<td>用户名：</td>
+				<td><input type="text" id="userID" name="userID"></td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td><input type="password" id="password" name="password">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" onclick="doSumit()"
+					value="登录"></td>
+			</tr>
+		</table>
 	</form>
-
-
 </body>
 
 <script type="text/javascript">

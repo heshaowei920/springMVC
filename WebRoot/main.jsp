@@ -2,7 +2,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>芒果菠萝饭</title>
+<link rel="shortcut icon"  href="icon/favicon.ico" />
+<title>One Piece</title>
 </head>
 <frameset rows="117,*" frameborder="NO" border="0" framespacing="0">
 	<frame src="top.jsp" frameborder=0 scrolling="no" marginwidth=0 marginheight="0" noresize>
