@@ -64,9 +64,13 @@
 		<property name="userService" ref="userService"/>
 	</bean>
 	
-	<!-- <bean name="RoleController" class="com.one.piece.view.RoleController" scope="prototype">
+	<bean name="RoleController" class="com.one.piece.view.RoleController" scope="prototype">
 		<property name="roleService" ref="roleService"/>
-	</bean> -->
+	</bean>
+	
+	<bean name="RightController" class="com.one.piece.view.RightController" scope="prototype">
+		<property name="rightService" ref="rightService"/>
+	</bean>
 	
 
 	

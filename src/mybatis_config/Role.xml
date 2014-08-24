@@ -7,20 +7,20 @@
 
 
 	<insert id="insertRole" parameterType="Role" useGeneratedKeys="true" keyProperty="theID">
-		insert into foo.user(userID,name,age,phone,passWord) values(#{userID},#{name},#{age},#{phone},#{passWord});
+		insert into admin_role(roleName) values(#{roleName});
 	</insert>
 	
 	<delete id="deleteRole" parameterType="long">
-		delete from role where theID = #{theID}
+		delete from admin_role where theID = #{theID}
 	</delete>
 	
 	<select id="getRoleByRoleID" parameterType="Long" resultType="Role">
-	 select * from role where theID=#{theID}
+	 select * from admin_role where theID=#{theID}
 	</select>
 	
 	
 	<update id="updateRole" parameterType="Role">
-		update role set 
+		update admin_role set 
 		<trim suffixOverrides=",">
 			<if test="name!=null">name=#{name}, </if>
 			<if test="phone!=null">phone=#{phone}, </if>
@@ -30,8 +30,8 @@
 		<where>theID=#{theID}</where>
 	</update>
 	
-	<select id="getAllRole" resultType="Role" parameterType="map">
-		select * from Role 
+	<select id="getAllRole" resultType="Role" parameterType="Role">
+		select * from admin_role 
 		<trim suffixOverrides="and">
 			<where>
 				<if test="name!=null"> name like #{name} and </if>
@@ -43,12 +43,6 @@
 		<if test="page!=null and pageCount!=null">
 			limit #{page}, #{pageCount}
 		</if>
-	</select>
-	
-	
-	<select id="getUser" resultType="User" parameterType="long">
-		select * from user
-		<where>theID=#{theID}</where>
 	</select>
 	
 </mapper>

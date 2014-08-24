@@ -23,17 +23,17 @@ public class RoleController {
 	}
 
 	@RequestMapping("roleList")
-	public String listUser(HttpServletRequest req) {
-		List<Role> list = roleService.getAllRole(null, null);
+	public String roleList(HttpServletRequest req) {
+		List<Role> list = roleService.getAllRole(null);
 		req.setAttribute("list", list);
 		System.out.println("listUser method was invoked..." + new Date());
-		return "role_list";
+		return "admin_role_list";
 	}
 
 	@RequestMapping(value = "/addRole", method = RequestMethod.GET)
 	public String addRole() {
 		System.out.println("addUser method was invoked...");
-		return "role_add";
+		return "admin_role_add";
 	}
 
 	@RequestMapping(value = "saveRole", method = RequestMethod.POST)
@@ -42,7 +42,7 @@ public class RoleController {
 		Role role = new Role();
 		role.setRoleName(roleName);
 		roleService.insertRole(role);
-		return "redirect:listRole.do";
+		return "redirect:roleList.do";
 	}
 
 	@RequestMapping(value = "toUpdateRole", method = RequestMethod.GET)

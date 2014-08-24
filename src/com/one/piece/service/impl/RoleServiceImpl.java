@@ -34,7 +34,7 @@ public class RoleServiceImpl implements RoleService{
 	 * @param page 分页页码。
 	 * @param pageCount 页数。
 	 */
-	public List<Role> getAllRole(Integer page, Integer pageCount) {
+	public List<Role> getAllRole(Role role) {
 		List<Role> roleList = roleDao.getAllRole(null);
 		return roleList;
 	}
@@ -47,8 +47,8 @@ public class RoleServiceImpl implements RoleService{
 	/**
 	 * 通配查找需要的数据。
 	 */
-	public List<Role> getRoleNeeded(Map<String, Object> likeCondition) {
-		List<Role> roleList = roleDao.getAllRole(likeCondition);
+	public List<Role> getRoleNeeded(Role role) {
+		List<Role> roleList = roleDao.getAllRole(role);
 		return roleList;
 	}
 

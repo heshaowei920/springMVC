@@ -23,12 +23,12 @@ public class RightController {
 	}
 
 	@RequestMapping("rightList")
-	public String listUser(HttpServletRequest req) {
+	public String rightList(HttpServletRequest req) {
 		List<Right> list = rightService.getAllRight(null, null);
 
 		req.setAttribute("list", list);
 		System.out.println("listUser method was invoked..." + new Date());
-		return "right_list";
+		return "admin_right_list";
 	}
 
 	@RequestMapping(value = "addRight", method = RequestMethod.GET)

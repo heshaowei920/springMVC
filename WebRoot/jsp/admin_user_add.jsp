@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ include file="/comm/comm.jsp"%>    
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -8,7 +9,7 @@
 	<body>
 		<h2>添加用户</h2>
 		<hr size="20" color="yellow">
-		<form action="${pageContext.request.contextPath}/saveUser.do" method="post">
+		<form action="${ctx}/saveUser.do" method="post">
 			<table>
 				<tr>
 					<td>用户名：</td>
@@ -35,7 +36,7 @@
 				</tr>
 			</table>
 		</form><br>
-		<a href="${pageContext.request.contextPath}/listUser.do">返回</a>
+		<a href="${ctx}/listUser.do">返回</a>
 	</body>
 	
 	<script type="text/javascript">

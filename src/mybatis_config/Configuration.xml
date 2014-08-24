@@ -13,12 +13,12 @@
 		<setting name="defaultStatementTimeout" value="25000"/>  
 	</settings>
 	<typeAliases>
-		<typeAlias type="com.one.piece.entity.User"
-			alias="User" />
-	
+		<typeAlias type="com.one.piece.entity.User" alias="User" />
+	    <typeAlias type="com.one.piece.entity.Role" alias="Role" />
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="./mybatis_config/User.xml"/>
+		<mapper resource="./mybatis_config/Role.xml"/>
 	</mappers>
 </configuration>

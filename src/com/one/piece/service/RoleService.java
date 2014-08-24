@@ -10,7 +10,7 @@ public interface RoleService {
 	public void deleteRole(Long theID);
 	public void updateRole(Role role);
 	
-	public List<Role> getAllRole(Integer page, Integer pageCount);
-	public List<Role> getRoleNeeded(Map<String, Object> likeCondition);
+	public List<Role> getAllRole(Role role);
+	public List<Role> getRoleNeeded(Role role);
 	public Role getOneRole(Long theID);
 }

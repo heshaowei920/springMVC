@@ -13,12 +13,7 @@ public interface RoleDao {
 	public void insertRole(Role role);
 	public void updateRole(Role role);
 	public void deleteRole(Long theID);
-	/**
-	 * 进行模糊查询
-	 * @param likeCondition
-	 * @param page
-	 * @return
-	 */
-	public List<Role> getAllRole(Map<String,Object> likeCondition);
+	
+	public List<Role> getAllRole(Role role);
 	public Role getRole(Long theID);
 }

@@ -81,13 +81,13 @@ public class UserController {
 		System.out.println("user count : " + users.size());
 		req.setAttribute("users", users);
 		System.out.println("listUser method was invoked..." + new Date());
-		return "listUser";
+		return "admin_user_list";
 	}
 
 	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
 	public String addUser() {
 		System.out.println("addUser method was invoked...");
-		return "addUser";
+		return "admin_user_add";
 	}
 
 	@RequestMapping(value = "saveUser", method = RequestMethod.POST)
@@ -118,37 +118,6 @@ public class UserController {
 	public String deleteUser(@RequestParam Long uid) {
 		userService.deleteUser(uid);
 		return "redirect:listUser.do";// 重定向到listUser.do
-	}
-
-	/**
-	 * 获得Ajax异步请求，并将请求数据以JSON格式响应。
-	 * 
-	 * @param name
-	 *            Reuqest中的name参数。
-	 * @param age
-	 *            Reuqest中的age参数。
-	 * @param phone
-	 *            Reuqest中的phone参数。
-	 * @return List<User> 返回的包含User对象的集合对象在标注的作用下生成JSON字符串响应。
-	 */
-	@RequestMapping(value = "ajaxGetUser", method = RequestMethod.GET)
-	public @ResponseBody
-	List<User> ajaxGetUser(@RequestParam String name,
-			@RequestParam Integer age, @RequestParam String phone) {
-		Map<String, Object> likeCondition = new HashMap<String, Object>();
-		if (name != null && name.length() > 0) {
-			likeCondition.put("name", "%" + name + "%");
-		}
-		if (age != null) {
-			likeCondition.put("age", age);
-		}
-		if (phone != null && phone.length() > 0) {
-			likeCondition.put("phone", "%" + phone + "%");
-		}
-		List<User> users = userService.getUserNeeded(likeCondition);
-		System.out.println(users.size() + "==========" + name + "===" + age
-				+ "===" + phone + "===" + likeCondition.size());
-		return users;
 	}
 
 	private User initUser(HttpServletRequest req) {

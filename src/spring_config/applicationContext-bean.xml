@@ -13,5 +13,9 @@
   <bean name="roleService" class="com.one.piece.service.impl.RoleServiceImpl" scope="prototype">
    		<property name="roleDao" ref="roleDao" />
    </bean>
+   
+   <bean name="rightService" class="com.one.piece.service.impl.RightServiceImpl" scope="prototype">
+   		<property name="rightDao" ref="rightDao" />
+   </bean>
 	
 </beans>
