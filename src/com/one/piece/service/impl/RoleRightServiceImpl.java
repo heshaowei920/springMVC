@@ -3,8 +3,8 @@ package com.one.piece.service.impl;
 import java.util.List;
 import java.util.Map;
 
-import com.one.piece.dao.RoleRightDao;
 import com.one.piece.entity.RoleRight;
+import com.one.piece.mapper.RoleRightDao;
 import com.one.piece.service.RoleRightService;
 
 public class RoleRightServiceImpl implements RoleRightService{

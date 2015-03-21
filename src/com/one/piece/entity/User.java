@@ -7,7 +7,7 @@ public class User {
 	private String name;
 	private Integer age;
 	private String phone;
-	private String passWord;
+	private String password;
     private String roleID;
     
    
@@ -32,11 +32,11 @@ public class User {
 		this.roleID = roleID;
 	}
 
-	public String getPassWord() {
-		return passWord;
+	public String getPassword() {
+		return password;
 	}
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getName() {
 		return name;
@@ -62,13 +62,13 @@ public class User {
 		this.name = name;
 		this.age = age;
 		this.phone = phone;
-		this.passWord = passwd;
+		this.password = passwd;
 	}
 	public User(String name, Integer age, String phone, String passwd) {
 		this.name = name;
 		this.age = age;
 		this.phone = phone;
-		this.passWord = passwd;
+		this.password = passwd;
 	}
 	public User() {
 	}

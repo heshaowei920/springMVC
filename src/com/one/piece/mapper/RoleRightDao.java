@@ -1,4 +1,4 @@
-package com.one.piece.dao;
+package com.one.piece.mapper;
 
 import java.util.List;
 import java.util.Map;
@@ -7,7 +7,6 @@ import org.mybatis.spring.annotation.Mapper;
 
 import com.one.piece.entity.RoleRight;
 
-@Mapper("roleRightDao")
 public interface RoleRightDao {
 	public void insertRoleRight(RoleRight roleRight);
 	public void updateRoleRight(RoleRight roleRight);

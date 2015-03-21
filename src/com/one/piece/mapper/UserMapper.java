@@ -1,4 +1,4 @@
-package com.one.piece.dao;
+package com.one.piece.mapper;
 
 import java.util.List;
 import java.util.Map;
@@ -8,9 +8,8 @@ import org.mybatis.spring.annotation.Mapper;
 import com.one.piece.entity.User;
 
 
-
-@Mapper("userDao")
-public interface UserDao {
+@Mapper(value="userMapper")
+public interface UserMapper {
 	public void insertUser(User user);
 	public void updateUser(User user);
 	public void deleteUser(Long theID);

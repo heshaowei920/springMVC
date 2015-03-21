@@ -22,50 +22,6 @@ public class RoleController {
 		this.roleService = roleService;
 	}
 
-	@RequestMapping("roleList")
-	public String roleList(HttpServletRequest req) {
-		List<Role> list = roleService.getAllRole(null);
-		req.setAttribute("list", list);
-		System.out.println("listUser method was invoked..." + new Date());
-		return "admin_role_list";
-	}
-
-	@RequestMapping(value = "/addRole", method = RequestMethod.GET)
-	public String addRole() {
-		System.out.println("addUser method was invoked...");
-		return "admin_role_add";
-	}
-
-	@RequestMapping(value = "saveRole", method = RequestMethod.POST)
-	public String saveRole(HttpServletRequest req) {
-		String roleName = req.getParameter("roleName");
-		Role role = new Role();
-		role.setRoleName(roleName);
-		roleService.insertRole(role);
-		return "redirect:roleList.do";
-	}
-
-	@RequestMapping(value = "toUpdateRole", method = RequestMethod.GET)
-	public String toUpdateUser(@RequestParam Long uid, HttpServletRequest req) {
-		Role role = roleService.getOneRole(uid);
-		req.setAttribute("role", role);
-		return "role_update";
-	}
-
-	@RequestMapping(value = "updateRole", method = RequestMethod.POST)
-	public String updateUser(HttpServletRequest req) {
-		String roleName = req.getParameter("roleName");
-		Role role = new Role();
-		role.setRoleName(roleName);
-
-		roleService.updateRole(role);
-		return "redirect:listRole.do";
-	}
-
-	@RequestMapping(value = "deleteRole", method = RequestMethod.GET)
-	public String deleteUser(@RequestParam Long uid) {
-		roleService.deleteRole(uid);
-		return "redirect:listRole.do";
-	}
+	
 
 }

@@ -3,8 +3,8 @@ package com.one.piece.service.impl;
 import java.util.List;
 import java.util.Map;
 
-import com.one.piece.dao.RightDao;
 import com.one.piece.entity.Right;
+import com.one.piece.mapper.RightDao;
 import com.one.piece.service.RightService;
 
 

@@ -1,11 +1,10 @@
-package com.one.piece.dao;
+package com.one.piece.mapper;
 
 import java.util.List;
 import java.util.Map;
 import org.mybatis.spring.annotation.Mapper;
 import com.one.piece.entity.Right;
 
-@Mapper("rightDao")
 public interface RightDao {
 	public void insertRight(Right right);
 	public void updateRight(Right right);

@@ -7,15 +7,7 @@
    
    <!-- =================================== Service层 ===================================== -->
    <bean name="userService" class="com.one.piece.service.impl.UserServiceImpl" scope="prototype">
-   		<property name="userDao" ref="userDao" />
-   </bean>
-   
-  <bean name="roleService" class="com.one.piece.service.impl.RoleServiceImpl" scope="prototype">
-   		<property name="roleDao" ref="roleDao" />
-   </bean>
-   
-   <bean name="rightService" class="com.one.piece.service.impl.RightServiceImpl" scope="prototype">
-   		<property name="rightDao" ref="rightDao" />
+   		<property name="userMapper" ref="userMapper" />
    </bean>
 	
 </beans>

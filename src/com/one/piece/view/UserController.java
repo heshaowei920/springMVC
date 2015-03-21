@@ -2,33 +2,27 @@ package com.one.piece.view;
 
 import java.io.PrintWriter;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.one.piece.entity.User;
 import com.one.piece.service.UserService;
 
-@Controller
+@Controller(value="userController")
+
 public class UserController {
+	
+	@Resource
 	private UserService userService;
-
-	public UserService getUserService() {
-		return userService;
-	}
-
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
 
 	@RequestMapping(value = "userLogin", method = RequestMethod.POST)
 	public String userLogin(HttpServletRequest request) throws Exception {
@@ -36,7 +30,7 @@ public class UserController {
 		String userID = request.getParameter("userID");
 		String pass = request.getParameter("password");
 		User user = userService.getUserByUserID(userID);
-		if (!pass.equals(user.getPassWord())) {
+		if (!pass.equals(user.getPassword())) {
 			throw new Exception("sssss");
 		}
 
@@ -53,7 +47,7 @@ public class UserController {
 			User user = userService.getUserByUserID(userID);
 			String msg = "";
 			if (user != null) {
-				if (!pass.equals(user.getPassWord())) {
+				if (!pass.equals(user.getPassword())) {
 					System.out.println("ssss");
 					msg = "密码不正确";
 				} else {

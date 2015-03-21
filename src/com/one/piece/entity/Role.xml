@@ -2,25 +2,25 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="user">
+<mapper namespace="com.one.piece.Role">
 
 
 
-	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="theID">
-		insert into foo.user(userID,name,age,phone,passWord) values(#{userID},#{name},#{age},#{phone},#{passWord});
+	<insert id="insertRole" parameterType="Role" useGeneratedKeys="true" keyProperty="theID">
+		insert into admin_role(roleName) values(#{roleName});
 	</insert>
 	
-	<delete id="deleteUser" parameterType="long">
-		delete from user where theID = #{theID}
+	<delete id="deleteRole" parameterType="long">
+		delete from admin_role where theID = #{theID}
 	</delete>
 	
-	<select id="getUserByUserID" parameterType="String" resultType="User">
-	 select * from user where userID=#{userID}
+	<select id="getRoleByRoleID" parameterType="Long" resultType="Role">
+	 select * from admin_role where theID=#{theID}
 	</select>
 	
 	
-	<update id="updateUser" parameterType="User">
-		update user set 
+	<update id="updateRole" parameterType="Role">
+		update admin_role set 
 		<trim suffixOverrides=",">
 			<if test="name!=null">name=#{name}, </if>
 			<if test="phone!=null">phone=#{phone}, </if>
@@ -30,8 +30,8 @@
 		<where>theID=#{theID}</where>
 	</update>
 	
-	<select id="getAllUser" resultType="User" parameterType="map">
-		select * from user 
+	<select id="getAllRole" resultType="Role" parameterType="Role">
+		select * from admin_role 
 		<trim suffixOverrides="and">
 			<where>
 				<if test="name!=null"> name like #{name} and </if>
@@ -43,12 +43,6 @@
 		<if test="page!=null and pageCount!=null">
 			limit #{page}, #{pageCount}
 		</if>
-	</select>
-	
-	
-	<select id="getUser" resultType="User" parameterType="long">
-		select * from user
-		<where>theID=#{theID}</where>
 	</select>
 	
 </mapper>

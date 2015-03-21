@@ -3,14 +3,17 @@
 	xmlns:aop="http://www.springframework.org/schema/aop" 
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
-						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
-						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	                    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
 	default-autowire="byType">
 	
 	
-	<import resource="applicationContext-bean.xml"/>
-	
+	<context:component-scan base-package="com.one.piece" />
+	<context:annotation-config />
+	<tx:annotation-driven />
 	<!-- ============================== 数据库配置 ==================================== -->
 	<!-- 数据源配置 -->
 	<bean name="dataSource"
@@ -33,37 +36,20 @@
 	<!-- 使用SqlSessionFactoryBean工厂产生SqlSession对象，方便后期注入Dao -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:mybatis_config/Configuration.xml"></property>
+		<property name="configLocation" value="classpath:mybatis_config.xml"></property>
 	</bean>
 	
 	<bean class="org.mybatis.spring.annotation.MapperScannerPostProcessor">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-		<property name="basePackage" value="com.one.piece.dao" />
+		<property name="basePackage" value="com.one.piece.mapper" />
 	</bean>
 	
 	<!-- ================================= 事务控制相关 ============================================= -->
    	<bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">   
     	<property name="dataSource" ref="dataSource"></property>
- 	</bean>   
-	
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<tx:method name="delete*" propagation="REQUIRED" read-only="false" 
-			           rollback-for="java.lang.Exception" no-rollback-for="java.lang.RuntimeException"/>
-			<tx:method name="insert*" propagation="REQUIRED" read-only="false" 
-			           rollback-for="java.lang.RuntimeException" />
-			<tx:method name="update*" propagation="REQUIRED" read-only="false" 
-			           rollback-for="java.lang.Exception" />
-			
-			<tx:method name="find*" propagation="SUPPORTS"/>
-			<tx:method name="get*" propagation="SUPPORTS"/>
-			<tx:method name="select*" propagation="SUPPORTS"/>
-		</tx:attributes>
-	</tx:advice>
-	
-	<aop:config>
-		<aop:pointcut id="pc" expression="execution(* *.*.*(..))" />
-		<aop:advisor pointcut-ref="pc" advice-ref="txAdvice" />
-	</aop:config>
+ 	</bean>
+ 	<!-- 
+ 	<import resource="classpath:spring_config/mapper-config.xml" />
+ 	<import resource="applicationContext-bean.xml"/> -->
 	
 </beans>

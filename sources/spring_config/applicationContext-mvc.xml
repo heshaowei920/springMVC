@@ -59,7 +59,7 @@
 	
 	
 	 
-	<!-- <mvc:default-servlet-handler/> -->
+	<!-- <mvc:default-servlet-handler/>
 	<bean name="UserController" class="com.one.piece.view.UserController" scope="prototype">
 		<property name="userService" ref="userService"/>
 	</bean>
@@ -70,7 +70,7 @@
 	
 	<bean name="RightController" class="com.one.piece.view.RightController" scope="prototype">
 		<property name="rightService" ref="rightService"/>
-	</bean>
+	</bean> -->
 	
 
 	

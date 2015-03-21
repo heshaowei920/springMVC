@@ -3,24 +3,23 @@ package com.one.piece.service.impl;
 import java.util.List;
 import java.util.Map;
 
-import com.one.piece.dao.UserDao;
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.one.piece.entity.User;
+import com.one.piece.mapper.UserMapper;
 import com.one.piece.service.UserService;
 
-
+@Service(value = "userService")
 public class UserServiceImpl implements UserService{
-	private UserDao userDao;
+	@Resource
+	private UserMapper userMapper;
 	
-	public UserDao getUserDao() {
-		return userDao;
-	}
-
-	public void setUserDao(UserDao userDao) {
-		this.userDao = userDao;
-	}
+	
 
 	public void deleteUser(Long theID) {
-		userDao.deleteUser(theID);
+		userMapper.deleteUser(theID);
 	}
 
 	/**
@@ -29,12 +28,12 @@ public class UserServiceImpl implements UserService{
 	 * @param pageCount 页数。
 	 */
 	public List<User> getAllUser(Integer page, Integer pageCount) {
-		List<User> users = userDao.getAllUser(null);
+		List<User> users = userMapper.getAllUser(null);
 		return users;
 	}
 
 	public User getOneUser(Long theID) {
-		User user = userDao.getUser(theID);
+		User user = userMapper.getUser(theID);
 		return user;
 	}
 
@@ -42,7 +41,7 @@ public class UserServiceImpl implements UserService{
 	 * 通配查找需要的数据。
 	 */
 	public List<User> getUserNeeded(Map<String, Object> likeCondition) {
-		List<User> users = userDao.getAllUser(likeCondition);
+		List<User> users = userMapper.getAllUser(likeCondition);
 		return users;
 	}
 
@@ -50,16 +49,16 @@ public class UserServiceImpl implements UserService{
 	 * 级联插入Address
 	 */
 	public void insertUser(User user) {
-		userDao.insertUser(user);
+		userMapper.insertUser(user);
 	}
 
 	public void updateUser(User user) {
-		userDao.updateUser(user);
+		userMapper.updateUser(user);
 	}
 
 	@Override
 	public User getUserByUserID(String userID) {
-		User user=userDao.getUserByUserID(userID);
+		User user=userMapper.getUserByUserID(userID);
 		return user;
 	}	
 
