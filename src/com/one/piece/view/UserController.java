@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,7 +38,7 @@ public class UserController {
 		request.getSession().setAttribute("user", user);
 		return "../main";
 	}
-
+    
 	@RequestMapping(value = "checkUser", method = RequestMethod.POST)
 	public void checkUser(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {

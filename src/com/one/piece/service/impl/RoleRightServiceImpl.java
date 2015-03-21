@@ -3,62 +3,45 @@ package com.one.piece.service.impl;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.one.piece.entity.RoleRight;
-import com.one.piece.mapper.RoleRightDao;
+import com.one.piece.mapper.RoleRightMapper;
 import com.one.piece.service.RoleRightService;
 
+@Service(value="roleRightService")
 public class RoleRightServiceImpl implements RoleRightService{
-	private RoleRightDao roleRightDao;
+	@Resource
+	private RoleRightMapper roleRightMapper;
 	
-	
-	
-	
-	
-	
-	public RoleRightDao getRoleRightDao() {
-		return roleRightDao;
-	}
-
-	public void setRoleRightDao(RoleRightDao roleRightDao) {
-		this.roleRightDao = roleRightDao;
-	}
 
 	public void deleteRoleRight(Long theID) {
-		roleRightDao.deleteRoleRight(theID);
+		roleRightMapper.deleteRoleRight(theID);
 	}
-
-	/**
-	 * 查询出全部的RoleRight。
-	 * @param page 分页页码。
-	 * @param pageCount 页数。
-	 */
+	
 	public List<RoleRight> getAllRoleRight(Integer page, Integer pageCount) {
-		List<RoleRight> RoleRights = roleRightDao.getAllRoleRight(null);
+		List<RoleRight> RoleRights = roleRightMapper.getAllRoleRight(null);
 		return RoleRights;
 	}
 
 	public RoleRight getOneRoleRight(Long theID) {
-		RoleRight RoleRight = roleRightDao.getRoleRight(theID);
+		RoleRight RoleRight = roleRightMapper.getRoleRight(theID);
 		return RoleRight;
 	}
-
-	/**
-	 * 通配查找需要的数据。
-	 */
+	
 	public List<RoleRight> getRoleRightNeeded(Map<String, Object> likeCondition) {
-		List<RoleRight> RoleRights = roleRightDao.getAllRoleRight(likeCondition);
+		List<RoleRight> RoleRights = roleRightMapper.getAllRoleRight(likeCondition);
 		return RoleRights;
 	}
-
-	/**
-	 * 级联插入Address
-	 */
+	
 	public void insertRoleRight(RoleRight roleRight) {
-		roleRightDao.insertRoleRight(roleRight);
+		roleRightMapper.insertRoleRight(roleRight);
 	}
 
 	public void updateRoleRight(RoleRight roleRight) {
-		roleRightDao.updateRoleRight(roleRight);
+		roleRightMapper.updateRoleRight(roleRight);
 	}	
 
 }

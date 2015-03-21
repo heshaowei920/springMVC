@@ -4,8 +4,8 @@ import java.util.List;
 import org.mybatis.spring.annotation.Mapper;
 import com.one.piece.entity.Role;
 
-
-public interface RoleDao {
+@Mapper(value="roleMapper")
+public interface RoleMapper {
 	public void insertRole(Role role);
 	public void updateRole(Role role);
 	public void deleteRole(Long theID);
