@@ -3,6 +3,7 @@
         <wb-resource deploy-path="/" source-path="/WebRoot"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/sources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="context-root" value="/bigdt"/>
         <property name="java-output-path" value="/spring_mybatis/WebRoot/WEB-INF/classes"/>
     </wb-module>

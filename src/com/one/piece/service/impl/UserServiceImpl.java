@@ -2,21 +2,24 @@ package com.one.piece.service.impl;
 
 import java.util.List;
 import java.util.Map;
-
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Service;
-
 import com.one.piece.entity.User;
 import com.one.piece.mapper.UserMapper;
 import com.one.piece.service.UserService;
 
-@Service(value = "userService")
+
 public class UserServiceImpl implements UserService{
-	@Resource
+	
 	private UserMapper userMapper;
 	
 	
+
+	public UserMapper getUserMapper() {
+		return userMapper;
+	}
+
+	public void setUserMapper(UserMapper userMapper) {
+		this.userMapper = userMapper;
+	}
 
 	public void deleteUser(Long theID) {
 		userMapper.deleteUser(theID);

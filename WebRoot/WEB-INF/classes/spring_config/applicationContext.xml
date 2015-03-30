@@ -11,9 +11,7 @@
 	default-autowire="byType">
 	
 	
-	<context:component-scan base-package="com.one.piece" />
-	<context:annotation-config />
-	<tx:annotation-driven />
+	
 	<!-- ============================== 数据库配置 ==================================== -->
 	<!-- 数据源配置 -->
 	<bean
@@ -46,17 +44,20 @@
 		<property name="configLocation" value="classpath:mybatis_config.xml"></property>
 	</bean>
 	
-	<bean class="org.mybatis.spring.annotation.MapperScannerPostProcessor">
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-		<property name="basePackage" value="com.one.piece.mapper" />
-	</bean>
+	
 	
 	<!-- ================================= 事务控制相关 ============================================= -->
    	<bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">   
     	<property name="dataSource" ref="dataSource"></property>
  	</bean>
+ 	
+ 	
+ 	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.one.piece.mapper.UserMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
  	<!-- 
- 	<import resource="classpath:spring_config/mapper-config.xml" />
- 	<import resource="applicationContext-bean.xml"/> -->
+ 	<import resource="classpath:spring_config/mapper-config.xml" /> -->
+ 	<import resource="applicationContext-bean.xml"/>
 	
 </beans>

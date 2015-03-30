@@ -18,12 +18,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.one.piece.entity.User;
 import com.one.piece.service.UserService;
 
-@Controller(value="userController")
-
+@Controller
 public class UserController {
 	
-	@Resource
+	
 	private UserService userService;
+	
+
+	public UserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
 
 	@RequestMapping(value = "userLogin", method = RequestMethod.POST)
 	public String userLogin(HttpServletRequest request) throws Exception {
