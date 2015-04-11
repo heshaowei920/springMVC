@@ -25,7 +25,7 @@ public class UesrAction {
 		userMapper = (UserMapper) context.getBean("userMapper");
 		userService = (UserService) context.getBean("userService");
 	}
-
+	
 	@Test
 	public void addUser() {
 		User user = new User();

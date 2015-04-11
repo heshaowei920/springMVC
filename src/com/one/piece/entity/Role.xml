@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.one.piece.mapper.RoleMapper">
+
+
+
+	 <sql id="selectRoleAll">  
+        id,name
+     </sql>  
+
+	<insert id="insertRole" parameterType="role" useGeneratedKeys="true" keyProperty="theID">
+		insert into admin_role
+		(name) 
+		values
+		(#{name});
+	</insert>
+	
+	<delete id="deleteRole" parameterType="long">
+		delete from admin_role where theID = #{theID}
+	</delete>
+	
+	<select id="selectRoleByID" parameterType="String" resultType="role">
+	 select <include refid="selectRoleAll"/>  from admin_role where theID=#{theID}
+	</select>
+	
+	
+	<update id="updateRole" parameterType="role">
+		update admin_role set 
+		<trim suffixOverrides=",">
+			<if test="name!=null">name=#{name}, </if>
+		</trim>
+		<where>theID=#{theID}</where>
+	</update>
+	
+	<select id="selectRole" resultType="role" parameterType="role">
+		select <include refid="selectRoleAll"/> from admin_role 
+		<trim suffixOverrides="and">
+			<where>
+				<if test="name!=null"> name = #{name} and </if>
+			</where>
+		</trim>
+		
+	</select>
+</mapper>

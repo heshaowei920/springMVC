@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.one.piece.mapper.RoleRightMapper">
+
+
+
+	<sql id="selectRoleRightAll">  
+        id,roleId,rightId
+     </sql>  
+
+	<insert id="insertRoleRight" parameterType="roleRight" useGeneratedKeys="true" keyProperty="theID">
+		insert into admin_roleRight
+		(roleId,rightId) 
+		values
+		(#{roleId},#{rightId});
+	</insert>
+	
+	<delete id="deleteRoleRight" parameterType="long">
+		delete from admin_roleRight where theID = #{theID}
+	</delete>
+	
+	<select id="selectRoleRightByID" parameterType="String" resultType="roleRight">
+	 select <include refid="selectRoleRightAll"/>  from admin_roleRight where theID=#{theID}
+	</select>
+	
+	
+	<update id="updateRoleRight" parameterType="roleRight">
+		update admin_roleRight set 
+		<trim suffixOverrides=",">
+			<if test="roleId!=null">roleId=#{roleId}, </if>
+			<if test="rightId!=null">rightId=#{rightId}, </if>
+		</trim>
+		<where>theID=#{theID}</where>
+	</update>
+	
+	<select id="selectRoleRight" resultType="roleRight" parameterType="roleRight">
+		select <include refid="selectRoleRightAll"/> from admin_roleRight 
+		<trim suffixOverrides="and">
+			<where>
+				<if test="roleId!=null"> roleId = #{roleId} and </if>
+				<if test="rightId!=null"> rightId = #{rightId} and </if>
+			</where>
+		</trim>
+		
+	</select>
+	
+</mapper>

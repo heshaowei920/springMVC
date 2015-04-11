@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.one.piece.mapper.RightMapper">
+
+     <sql id="selectRightAll">  
+        name,code,pid,sort
+     </sql>  
+
+	<insert id="insertRight" parameterType="right" useGeneratedKeys="true" keyProperty="theID">
+		insert into admin_right
+		(code,name,pid,sort) 
+		values
+		(#{code},#{name},#{pid},#{sort});
+	</insert>
+	
+	<delete id="deleteRight" parameterType="long">
+		delete from admin_right where theID = #{theID}
+	</delete>
+	
+	<select id="selectRightByID" parameterType="String" resultType="right">
+	 select <include refid="selectRightAll"/>  from admin_right where theID=#{theID}
+	</select>
+	
+	
+	<update id="updateRight" parameterType="User">
+		update admin_right set 
+		<trim suffixOverrides=",">
+			<if test="name!=null">name=#{name}, </if>
+			<if test="code!=null">code=#{code}, </if>
+			<if test="pid!=null">pid=#{pid}, </if>
+			<if test="sort!=null">sort=#{sort}</if>
+		</trim>
+		<where>theID=#{theID}</where>
+	</update>
+	
+	<select id="selectRight" resultType="right" parameterType="right">
+		select <include refid="selectRightAll"/> from admin_right 
+		<trim suffixOverrides="and">
+			<where>
+				<if test="name!=null"> name = #{name} and </if>
+				<if test="pid!=null"> pid = #{pid} and </if>
+				<if test="sort!=null"> sort = #{sort} and </if>
+				<if test="code!=null"> code = #{code}</if>
+			</where>
+		</trim>
+		
+	</select>
+	
+	
+	
+	
+</mapper>
