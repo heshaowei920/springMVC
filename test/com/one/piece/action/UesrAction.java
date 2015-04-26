@@ -30,8 +30,9 @@ public class UesrAction {
 	public void addUser() {
 		User user = new User();
 		user.setName("11");
-		userService.insertUser(user);
+		userService.insert(user);
 		System.out.println(userMapper);
-		List<User> list=userService.getAllUser(null,null);
+		List<User> list=userService.select(null);
+		System.out.println(list.size());
 	}
 }

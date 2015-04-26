@@ -9,5 +9,17 @@
    <bean name="userService" class="com.one.piece.service.impl.UserServiceImpl" scope="prototype">
    		<property name="userMapper" ref="userMapper" />
    </bean>
+   
+   <bean name="rightService" class="com.one.piece.service.impl.RightServiceImpl" scope="prototype">
+   		<property name="rightMapper" ref="rightMapper" />
+   </bean>
+   
+   <bean name="roleService" class="com.one.piece.service.impl.RoleServiceImpl" scope="prototype">
+   		<property name="roleMapper" ref="roleMapper" />
+   </bean>
+   
+   <bean name="roleRightService" class="com.one.piece.service.impl.RoleRightServiceImpl" scope="prototype">
+   		<property name="roleRightMapper" ref="roleRightMapper" />
+   </bean>
 	
 </beans>

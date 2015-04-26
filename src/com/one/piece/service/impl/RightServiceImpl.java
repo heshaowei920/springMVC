@@ -1,9 +1,7 @@
 package com.one.piece.service.impl;
 
 import java.util.List;
-
 import com.one.piece.entity.Right;
-import com.one.piece.entity.User;
 import com.one.piece.mapper.RightMapper;
 import com.one.piece.service.RightService;
 

@@ -56,6 +56,21 @@
 		<property name="mapperInterface" value="com.one.piece.mapper.UserMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
+	
+	<bean id="roleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.one.piece.mapper.RoleMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="rightMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.one.piece.mapper.RightMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="roleRightMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.one.piece.mapper.RoleRightMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
  	<!-- 
  	<import resource="classpath:spring_config/mapper-config.xml" /> -->
  	<import resource="applicationContext-bean.xml"/>
