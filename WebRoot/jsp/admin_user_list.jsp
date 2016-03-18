@@ -33,6 +33,7 @@ a:visited {
     <input type="button" id="test4" value="加载框">
     
     <input type="button" id="test5" value="提示框">
+    <a href="${ctx}/addUser.do">添加</a>
 	<div>
 		<table border="1" width="100%" style="BORDER-COLLAPSE: collapse"
 			cellPadding=1 borderColor="#a3a3a3">

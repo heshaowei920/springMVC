@@ -51,5 +51,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/apache-tomcat-talkop/lib/jsp-api.jar"/>
 	<classpathentry kind="lib" path="D:/apache-tomcat-talkop/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="E:/workspace/springMVC/WebRoot/kindeditor/jsp/lib/json_simple-1.1.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
