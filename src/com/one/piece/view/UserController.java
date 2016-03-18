@@ -129,6 +129,7 @@ public class UserController {
 		String userID = req.getParameter("userID");
 
 		System.out.println("测试");
+		System.out.println("测试");
 		System.out.println(name + "---" + phone + "---" + age + "---" + passwd);
 
 		User user = new User(userID, name, Integer.parseInt(age), phone, passwd);
